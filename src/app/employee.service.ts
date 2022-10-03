@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Employee } from "./employee";
 import { environment } from "src/environments/environment";
@@ -8,6 +8,7 @@ import { environment } from "src/environments/environment";
     providedIn: 'root'
 })
 export class EmployeeService {
+    
     private apiServerUrl = environment.apiBaseUrl;
 
     constructor(private http: HttpClient) { }
@@ -27,4 +28,9 @@ export class EmployeeService {
     public deleteEmployee(employeeId: number): Observable<void> {
         return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
     }
+    
+    public getUdemyCourse(): Observable<any> {
+        const headers = new HttpHeaders({'Authorization': `bearer gYBvNgnY4GIyZC1FjfLr8ENMGNbVkCd9`});
+        return this.http.get<any>(`https://www.udemy.com/instructor-api/v1/taught-courses/courses/`, {headers: headers});
+      }
 }
