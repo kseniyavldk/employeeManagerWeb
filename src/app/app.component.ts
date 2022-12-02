@@ -138,4 +138,8 @@ export class AppComponent implements OnInit {
 
     button.click();
   }
+
+  public onOpenList(employee = null, mode: string): void {
+    const container = document.getElementById('container');
+  }
 }
