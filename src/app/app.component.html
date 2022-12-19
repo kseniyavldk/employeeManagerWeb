@@ -19,12 +19,10 @@
         <a class="nav-link" (click)="onOpenModal(null, 'add')"
           >Add Employee <span class="sr-only">(current)</span></a
         >
+        <a class="nav-link" (click)="onOpenModal(null, 'add')"
+          >Users <span class="sr-only">(current)</span></a
+        >
       </li>
-      <li class="nav-item active">
-         <a class="nav-link" (click)="onOpenList(null, 'add')"
-           >List table <span class="sr-only">(current)</span></a
-         >
-       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input
@@ -374,33 +372,4 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h3>Resonas</h3>
-    </div>
-    <div class="card--body">
-      <table class="table table-hover">
-        <thead>
-          <th>
-            ID
-          </th>
-          <th>
-            Name
-          </th>
-        </thead>
-        <tbody>
-          <tr class="text-center">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <button class="btn btn-warning">Edit</button>
-              <button class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<app-user></app-user>
