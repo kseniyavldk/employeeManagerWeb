@@ -13,7 +13,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { GroupinfoComponent } from './groupinfo/groupinfo.component';
 import { GroupuserComponent } from './groupuser/groupuser.component';
 import { UserService } from './user/user.service';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
+import { AddComponent } from './user/add/add.component';
 
 
 @NgModule({
@@ -27,12 +28,23 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     EmployeeComponent,
     GroupinfoComponent,
     GroupuserComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule, 
     FormsModule,
-    MatSidenavModule,
+    RouterModule.forRoot([
+      {path: 'cabinet', component: CabinetComponent},
+      {path: 'employee', component: EmployeeComponent},
+      {path: 'groupinfo', component: GroupinfoComponent},
+      {path: 'groupuser', component: GroupuserComponent},
+      {path: 'language', component: LanguageComponent},
+      {path: 'role', component: RoleComponent},
+      {path: 'timetable', component: TimetableComponent},
+      {path: 'user', component: UserComponent},
+      {path: 'user/add', component: AddComponent}
+    ]),
   ],
   providers: [EmployeeService, UserService],
   bootstrap: [AppComponent]

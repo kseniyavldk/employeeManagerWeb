@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from './user';
+import { Language } from './language';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LanguageService {
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
-  public getUsersList(): Observable<User[]> {
-      return this.http.get<User[]>(`${this.apiServerUrl}/user/all`);
+  public getLanguagesList(): Observable<Language[]> {
+      return this.http.get<Language[]>(`${this.apiServerUrl}/language/all`);
   }
 }

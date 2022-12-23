@@ -1,1 +1,27 @@
-<p>groupinfo works!</p>
+<div class="container" id="user-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Group Information Manage</h3>
+      </div>
+      <div class="card--body">
+        <table class="table table-hover">
+          <thead>
+            <th>ID</th>
+            <th>User</th>
+            <th>Language</th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let groupInfo of groupInfos" class="text-center">
+              <td>{{ groupInfo.id }}</td>
+              <td>{{ groupInfo.userId }}</td>
+              <td>{{ groupInfo.languageId }}</td>
+              <td>
+                <button class="btn btn-warning">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

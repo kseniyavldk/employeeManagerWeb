@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeTable } from './timetable';
+import { TimetableService } from './timetable.service';
 
 @Component({
   selector: 'app-timetable',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timetable.component.css']
 })
 export class TimetableComponent implements OnInit {
+  timeTables: TimeTable[] | undefined
 
-  constructor() { }
+  constructor(private timeTableService: TimetableService) { }
 
   ngOnInit(): void {
+    this.getTimeTables();
   }
-
+  private getTimeTables(){
+    this.timeTableService.getTimeTablesList().subscribe(data => {
+      this.timeTables = data;
+    });
+  }
 }
