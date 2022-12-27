@@ -6,7 +6,7 @@
       <input
         type="text"
         name="name"
-        ngModel
+        [(ngModel)] = "users.name"
         class="form-control"
         id="name"
         placeholder="Name"
@@ -18,7 +18,7 @@
       <input
         type="text"
         name="lastname"
-        ngModel
+        [(ngModel)] = "users.lastname"
         class="form-control"
         id="lastname"
         placeholder="Lastname"
@@ -30,7 +30,7 @@
       <input
       type="text"
       name="patronymic"
-      ngModel
+      [(ngModel)] = "users.patronymic"
       class="form-control"
       id="patronymic"
       placeholder="Patronymic"

@@ -1,0 +1,44 @@
+<div class="container">
+    <legend>Edit Item</legend>
+    <form>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Name</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)] = "users.name"
+          class="form-control"
+          id="name"
+          placeholder="Name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="txtPrice" class="form-label">Lastname</label>
+        <input
+          type="text"
+          name="lastname"
+          [(ngModel)] = "users.lastname"
+          class="form-control"
+          id="lastname"
+          placeholder="Lastname"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="txtQuantity" class="form-label">Patronymic</label>
+        <input
+        type="text"
+        name="patronymic"
+        [(ngModel)] = "users.patronymic"
+        class="form-control"
+        id="patronymic"
+        placeholder="Patronymic"
+        required
+        />
+      </div>
+      <button type="button" (click)="update()" class="btn btn-primary">
+        Update
+      </button>
+    </form>
+  </div>
+  

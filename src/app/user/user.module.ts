@@ -1,12 +1,10 @@
-/* import { NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { AddComponent } from "./add/add.component";
 
 @NgModule({
-    declarations:[AddComponent],
     imports: [
-        FormsModule
+        FormsModule,
     ]
 })
 
-export class UserModule {} */
+export class UserModule {}

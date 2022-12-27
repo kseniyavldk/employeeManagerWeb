@@ -15,6 +15,7 @@ import { GroupuserComponent } from './groupuser/groupuser.component';
 import { UserService } from './user/user.service';
 import { RouterModule } from '@angular/router';
 import { AddComponent } from './user/add/add.component';
+import { EditComponent } from './user/edit/edit.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AddComponent } from './user/add/add.component';
     GroupinfoComponent,
     GroupuserComponent,
     AddComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { AddComponent } from './user/add/add.component';
       {path: 'role', component: RoleComponent},
       {path: 'timetable', component: TimetableComponent},
       {path: 'user', component: UserComponent},
-      {path: 'user/add', component: AddComponent}
+      {path: 'user/add', component: AddComponent},
+      {path: 'user/edit/:id', component: EditComponent}
     ]),
   ],
   providers: [EmployeeService, UserService],
