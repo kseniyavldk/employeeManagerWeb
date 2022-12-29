@@ -16,6 +16,10 @@ import { UserService } from './user/user.service';
 import { RouterModule } from '@angular/router';
 import { AddComponent } from './user/add/add.component';
 import { EditComponent } from './user/edit/edit.component';
+import { AddTimeTableComponent } from './timetable/add-time-table/add-time-table.component';
+import { EditTimeTableComponent } from './timetable/edit-time-table/edit-time-table.component';
+import { AddRoleComponent } from './role/add-role/add-role.component';
+import { EditRoleComponent } from './role/edit-role/edit-role.component';
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import { EditComponent } from './user/edit/edit.component';
     GroupinfoComponent,
     GroupuserComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    AddTimeTableComponent,
+    EditTimeTableComponent,
+    AddRoleComponent,
+    EditRoleComponent
   ],
   imports: [
     BrowserModule,
@@ -43,10 +51,14 @@ import { EditComponent } from './user/edit/edit.component';
       {path: 'groupuser', component: GroupuserComponent},
       {path: 'language', component: LanguageComponent},
       {path: 'role', component: RoleComponent},
+      {path: 'role/add', component: AddRoleComponent},
+      {path: 'role/edit/:id', component: EditRoleComponent},
       {path: 'timetable', component: TimetableComponent},
+      {path: 'timetable/add', component: AddTimeTableComponent},
+      {path: 'timetable/edit/:id', component: EditTimeTableComponent},
       {path: 'user', component: UserComponent},
       {path: 'user/add', component: AddComponent},
-      {path: 'user/edit/:id', component: EditComponent}
+      {path: 'user/edit/:id', component: EditComponent},
     ]),
   ],
   providers: [EmployeeService, UserService],

@@ -1,0 +1,33 @@
+<div class="container">
+    <legend>Edit Item</legend>
+    <form>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Date</label>
+        <input
+          type="text"
+          name="data"
+          [(ngModel)] = "timeTables.data"
+          class="form-control"
+          id="data"
+          placeholder="Data"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="txtPrice" class="form-label">groupId</label>
+        <input
+          type="text"
+          name="groupId"
+          [(ngModel)] = "timeTables.groupId"
+          class="form-control"
+          id="groupId"
+          placeholder="GroupId"
+        />
+      </div>
+      
+      <button type="button" (click)="update()" class="btn btn-primary">
+        Update
+      </button>
+    </form>
+  </div>
+  
