@@ -1,0 +1,22 @@
+<div class="container">
+    <legend>Create languages</legend>
+    <form>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Name</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)] = "languages.name"
+          class="form-control"
+          id="name"
+          placeholder="Name"
+          required
+        />
+      </div>
+      
+      <button type="button" (click)="postLanguagesAdd()" class="btn btn-primary">
+        Create
+      </button>
+    </form>
+  </div>
+  

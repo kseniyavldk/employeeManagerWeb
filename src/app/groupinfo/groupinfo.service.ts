@@ -15,4 +15,16 @@ export class GroupInfoService {
   public getGroupInfosList(): Observable<GroupInfo[]> {
       return this.http.get<GroupInfo[]>(`${this.apiServerUrl}/groupInfo/all`);
   }
+  public postGroupInfosAdd(groupInfo: GroupInfo): Observable<GroupInfo> {
+    return this.http.post<GroupInfo>(`${this.apiServerUrl}/groupInfo/add`, groupInfo);
+  }
+  getById(id: number) {
+    return this.http.get<GroupInfo>(`${this.apiServerUrl}/groupInfo/find/${id}`);
+  }
+  update(groupInfo: GroupInfo) {
+    return this.http.put(`${this.apiServerUrl}/groupInfo/update`, groupInfo);
+  }
+  delete(id: number) {
+    return this.http.delete<GroupInfo>(`${this.apiServerUrl}/groupInfo/delete/${id}`);
+  }
 }

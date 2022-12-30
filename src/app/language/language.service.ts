@@ -15,4 +15,16 @@ export class LanguageService {
   public getLanguagesList(): Observable<Language[]> {
       return this.http.get<Language[]>(`${this.apiServerUrl}/language/all`);
   }
+  public postLanguagesAdd(language: Language): Observable<Language> {
+    return this.http.post<Language>(`${this.apiServerUrl}/language/add`, language);
+  }
+  getById(id: number) {
+    return this.http.get<Language>(`${this.apiServerUrl}/language/find/${id}`);
+  }
+  update(language: Language) {
+    return this.http.put(`${this.apiServerUrl}/language/update`, language);
+  }
+  delete(id: number) {
+    return this.http.delete<Language>(`${this.apiServerUrl}/language/delete/${id}`);
+  }
 }

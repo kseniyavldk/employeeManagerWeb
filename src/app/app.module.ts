@@ -20,6 +20,13 @@ import { AddTimeTableComponent } from './timetable/add-time-table/add-time-table
 import { EditTimeTableComponent } from './timetable/edit-time-table/edit-time-table.component';
 import { AddRoleComponent } from './role/add-role/add-role.component';
 import { EditRoleComponent } from './role/edit-role/edit-role.component';
+import { AddLanguageComponent } from './language/add-language/add-language.component';
+import { EditLanguageComponent } from './language/edit-language/edit-language.component';
+import { AddCabinetComponent } from './cabinet/add-cabinet/add-cabinet.component';
+import { EditCabinetComponent } from './cabinet/edit-cabinet/edit-cabinet.component';
+import { AddGroupinfoComponent } from './groupinfo/add-groupinfo/add-groupinfo.component';
+import { EditGroupinfoComponent } from './groupinfo/edit-groupinfo/edit-groupinfo.component';
+
 
 
 @NgModule({
@@ -38,7 +45,14 @@ import { EditRoleComponent } from './role/edit-role/edit-role.component';
     AddTimeTableComponent,
     EditTimeTableComponent,
     AddRoleComponent,
-    EditRoleComponent
+    EditRoleComponent,
+    AddLanguageComponent,
+    EditLanguageComponent,
+    AddCabinetComponent,
+    EditCabinetComponent,
+    AddGroupinfoComponent,
+    EditGroupinfoComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,10 +60,16 @@ import { EditRoleComponent } from './role/edit-role/edit-role.component';
     FormsModule,
     RouterModule.forRoot([
       {path: 'cabinet', component: CabinetComponent},
+      {path: 'cabinet/add', component: AddCabinetComponent},
+      {path: 'cabinet/edit/:id', component: EditCabinetComponent},
       {path: 'employee', component: EmployeeComponent},
       {path: 'groupinfo', component: GroupinfoComponent},
+      {path: 'groupinfo/add', component: AddGroupinfoComponent},
+      {path: 'groupinfo/edit/:id', component: EditGroupinfoComponent},
       {path: 'groupuser', component: GroupuserComponent},
       {path: 'language', component: LanguageComponent},
+      {path: 'language/add', component: AddLanguageComponent},
+      {path: 'language/edit/:id', component: EditLanguageComponent},
       {path: 'role', component: RoleComponent},
       {path: 'role/add', component: AddRoleComponent},
       {path: 'role/edit/:id', component: EditRoleComponent},
