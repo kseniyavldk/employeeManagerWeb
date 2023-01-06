@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GroupInfo } from './groupinfo';
-
+import { VGroupInfo } from './groupinfo';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +14,9 @@ export class GroupInfoService {
 
   public getGroupInfosList(): Observable<GroupInfo[]> {
       return this.http.get<GroupInfo[]>(`${this.apiServerUrl}/groupInfo/all`);
+  }
+  public getVGroupInfosList(): Observable<VGroupInfo[]> {
+    return this.http.get<VGroupInfo[]>(`${this.apiServerUrl}/vgroupInfo/all`);
   }
   public postGroupInfosAdd(groupInfo: GroupInfo): Observable<GroupInfo> {
     return this.http.post<GroupInfo>(`${this.apiServerUrl}/groupInfo/add`, groupInfo);

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TimeTable } from './timetable';
 
@@ -14,6 +14,13 @@ export class TimetableService {
 
   public getTimeTablesList(): Observable<TimeTable[]> {
       return this.http.get<TimeTable[]>(`${this.apiServerUrl}/timeTable/all`);
+      
+      /* return this.http.get<TimeTable[]>(`${this.apiServerUrl}/timeTable/all`).pipe(
+        map(res => ({
+          ...res,
+          data: new Date(res.data)
+        }),
+      )); */
   }
   public postTimeTablesAdd(timeTable: TimeTable): Observable<TimeTable> {
     return this.http.post<TimeTable>(`${this.apiServerUrl}/timeTable/add`, timeTable);

@@ -1,18 +1,18 @@
 <div class="container" id="user-container">
   <div class="card">
     <div class="card-header">
-      <h3>User Manage</h3>
-      <a class="btn btn-primary" routerLink="/user/add">Create</a>
+      <h3>Информация о преподавателях</h3>
+      <a class="btn btn-primary" routerLink="/user/add">Добавить</a>
     </div>
     <div class="card--body">
       <table class="table table-hover">
-        <thead>
+        <thead align="center">
           <th>ID</th>
-          <th>Name</th>
-          <th>Lastname</th>
-          <th>Patronymic</th>
-          <th>roleId</th>
-          <th>isHeadman</th>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Отчество</th>
+          <th>Роль</th>
+          <th>Доступ</th>
         </thead>
         <tbody>
           <tr *ngFor = "let user of users" class="text-center">
@@ -23,8 +23,8 @@
             <td>{{ user.roleId }}</td>
             <td>{{ user.isHeadman }}</td>
             <td>
-              <button class="btn btn-warning" [routerLink]="['/user/edit', user.id]">Edit</button>
-              <button class="btn btn-danger" (click)="openDeleteModal(user.id)">Delete</button>
+              <button class="btn btn-warning" [routerLink]="['/user/edit', user.id]">Изменить</button>
+              <button class="btn btn-danger" (click)="openDeleteModal(user.id)">Удалить</button>
             </td>
           </tr>
         </tbody>
@@ -38,15 +38,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Внимание!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure to delete the user?
+        Вы действительно хотите удалить?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" (click)="delete()">Confirm Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-danger" (click)="delete()">Удалить</button>
       </div>
     </div>
   </div>

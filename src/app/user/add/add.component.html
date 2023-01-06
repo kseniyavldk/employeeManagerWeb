@@ -1,39 +1,39 @@
 <div class="container">
-  <legend>Create Item</legend>
+  <legend>Добавление информации о преподавателях</legend>
   <form>
     <div class="mb-3">
-      <label for="txtName" class="form-label">Name</label>
+      <label for="txtName" class="form-label">Имя</label>
       <input
         type="text"
         name="name"
         [(ngModel)] = "users.name"
         class="form-control"
         id="name"
-        placeholder="Name"
+        placeholder="Имя"
         required
       />
     </div>
     <div class="mb-3">
-      <label for="txtPrice" class="form-label">Lastname</label>
+      <label for="txtPrice" class="form-label">Фамилия</label>
       <input
         type="text"
         name="lastname"
         [(ngModel)] = "users.lastname"
         class="form-control"
         id="lastname"
-        placeholder="Lastname"
+        placeholder="Фамилия"
         required
       />
     </div>
     <div class="mb-3">
-      <label for="txtQuantity" class="form-label">Patronymic</label>
+      <label for="txtQuantity" class="form-label">Отчество</label>
       <input
       type="text"
       name="patronymic"
       [(ngModel)] = "users.patronymic"
       class="form-control"
       id="patronymic"
-      placeholder="Patronymic"
+      placeholder="Отчество"
       required
       />
     </div>

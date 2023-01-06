@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupInfo } from './groupinfo';
+import { VGroupInfo } from './groupinfo';
 import { GroupInfoService } from './groupinfo.service';
 declare var window: any;
 @Component({
@@ -9,6 +10,7 @@ declare var window: any;
 })
 export class GroupinfoComponent implements OnInit {
   groupInfos: GroupInfo[] = [];
+  vgroupInfos: VGroupInfo[] = [];
   deleteModal: any;
   idTodelete: number = 0;
 
@@ -19,6 +21,7 @@ export class GroupinfoComponent implements OnInit {
       document.getElementById('deleteModal')
     );
     this.getGroupInfos();
+    this.getVGroupInfos();
   }
 
   private getGroupInfos(){
@@ -26,6 +29,13 @@ export class GroupinfoComponent implements OnInit {
       this.groupInfos = data;
     });
   }
+
+  private getVGroupInfos(){
+    this.groupInfoService.getVGroupInfosList().subscribe(data => {
+      this.vgroupInfos = data;
+    });
+  }
+
   openDeleteModal(id: number) {
     this.idTodelete = id;
     this.deleteModal.show();

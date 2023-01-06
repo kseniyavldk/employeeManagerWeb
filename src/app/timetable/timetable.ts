@@ -1,6 +1,6 @@
 export interface TimeTable{
     id: number;
-    data: number;
+    data: Date;
     groupId: number;
     timeTableCode: string;
 }

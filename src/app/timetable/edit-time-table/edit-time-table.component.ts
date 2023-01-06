@@ -12,7 +12,7 @@ export class EditTimeTableComponent implements OnInit {
   
   timeTables: TimeTable = {
     id: 0,
-    data: 0,
+    data: new Date(),
     groupId: 0,
     timeTableCode: '',
   };

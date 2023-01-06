@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID } from '@angular/core';
 import { TimeTable } from './timetable';
 import { TimetableService } from './timetable.service';
 declare var window: any;
 @Component({
   selector: 'app-timetable',
   templateUrl: './timetable.component.html',
-  styleUrls: ['./timetable.component.css']
+  styleUrls: ['./timetable.component.css'],
+  /* providers: [{ provide: LOCALE_ID, useValue: 'ru' }]  */
 })
 export class TimetableComponent implements OnInit {
   timeTables: TimeTable[] = [];
