@@ -44,7 +44,7 @@ export class GroupinfoComponent implements OnInit {
   delete() {
     this.groupInfoService.delete(this.idTodelete).subscribe({
       next: (data) => {
-        this.groupInfos = this.groupInfos.filter(_ => _.id != this.idTodelete)
+        this.vgroupInfos = this.vgroupInfos.filter(_ => _.id != this.idTodelete)
         this.deleteModal.hide();
       },
     });

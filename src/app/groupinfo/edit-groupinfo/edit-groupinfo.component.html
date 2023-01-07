@@ -1,1 +1,33 @@
-<p>edit-groupinfo works!</p>
+<div class="container">
+    <legend>Изменение информации о преподавателях</legend>
+    <form>
+        <div class="mb-3">
+            <label for="txtName" class="form-label">Преподаватель</label>
+            <input
+              type="text"
+              name="userId"
+              [(ngModel)] = "groupInfos.userId"
+              class="form-control"
+              id="userId"
+              placeholder="userId"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="txtName" class="form-label">Язык</label>
+            <input
+              type="text"
+              name="languageId"
+              [(ngModel)] = "groupInfos.languageId"
+              class="form-control"
+              id="languageId"
+              placeholder="languageId"
+              required
+            />
+          </div>
+      <button type="button" (click)="update()" class="btn btn-primary">
+        Сохранить
+      </button>
+    </form>
+  </div>
+  

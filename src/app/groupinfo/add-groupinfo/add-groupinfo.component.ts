@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DropDown } from 'src/app/model/dropdown';
+import { UserService } from 'src/app/user/user.service';
 import { GroupInfo } from '../groupinfo';
 import { GroupInfoService } from '../groupinfo.service';
 
@@ -15,10 +17,20 @@ export class AddGroupinfoComponent implements OnInit{
     languageId: 0,
     GroupInfoCode: ''
   }
-  constructor(private groupInfoService: GroupInfoService, private router: Router) {}
-ngOnInit(): void {
-   
+  dropDownTeachers: DropDown[] = [];
+
+  constructor(private groupInfoService: GroupInfoService, private userService: UserService, private router: Router) {}
+  
+  ngOnInit(): void {
+    this.getDropDownTeachers();
   }
+
+  private getDropDownTeachers(){
+    this.userService.getTeachersList().subscribe(data => {
+      this.dropDownTeachers = data;
+    });
+  }
+
   postGroupInfosAdd() {
     this.groupInfoService.postGroupInfosAdd(this.groupInfos).subscribe({
       next: (data) => {
@@ -29,4 +41,6 @@ ngOnInit(): void {
       },
     });
   }
+
+
 }

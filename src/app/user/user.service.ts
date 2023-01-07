@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { DropDown } from '../model/dropdown';
 import { User } from './user';
 
 @Injectable({
@@ -26,5 +27,10 @@ export class UserService {
   }
   delete(id: number) {
     return this.http.delete<User>(`${this.apiServerUrl}/user/delete/${id}`);
+  }
+
+
+  public getTeachersList(): Observable<DropDown[]> {
+    return this.http.get<DropDown[]>(`${this.apiServerUrl}/user/allTeachers`);
   }
 }

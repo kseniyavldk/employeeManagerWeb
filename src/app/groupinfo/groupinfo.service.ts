@@ -21,6 +21,9 @@ export class GroupInfoService {
   public postGroupInfosAdd(groupInfo: GroupInfo): Observable<GroupInfo> {
     return this.http.post<GroupInfo>(`${this.apiServerUrl}/groupInfo/add`, groupInfo);
   }
+  public postVGroupInfosAdd(vgroupInfo: VGroupInfo): Observable<VGroupInfo> {
+    return this.http.post<VGroupInfo>(`${this.apiServerUrl}/vgroupInfo/add`, vgroupInfo);
+  }
   getById(id: number) {
     return this.http.get<GroupInfo>(`${this.apiServerUrl}/groupInfo/find/${id}`);
   }
