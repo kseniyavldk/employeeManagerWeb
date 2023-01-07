@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
+import { User, VUser } from './user';
 import { UserService } from './user.service';
 
 declare var window: any;
@@ -10,9 +10,10 @@ declare var window: any;
 })
 export class UserComponent implements OnInit {
   users: User[] = [];
+  vusers: VUser[] = [];
   deleteModal: any;
   idTodelete: number = 0;
-
+  
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,7 @@ export class UserComponent implements OnInit {
     );
 
     this.getUsers();
+    this.getVUsers();
   }
 
   private getUsers(){
@@ -28,6 +30,13 @@ export class UserComponent implements OnInit {
       this.users = data;
     });
   }
+
+  private getVUsers(){
+    this.userService.getVUsersList().subscribe(data => {
+      this.vusers = data;
+    });
+  }
+
 
     openDeleteModal(id: number) {
       this.idTodelete = id;
@@ -37,7 +46,7 @@ export class UserComponent implements OnInit {
     delete() {
       this.userService.delete(this.idTodelete).subscribe({
         next: (data) => {
-          this.users = this.users.filter(_ => _.id != this.idTodelete)
+          this.vusers = this.vusers.filter(_ => _.id != this.idTodelete)
           this.deleteModal.hide();
         },
       });

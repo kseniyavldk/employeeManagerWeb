@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DropDown } from 'src/app/model/dropdown';
+import { UserService } from 'src/app/user/user.service';
 import { GroupInfo } from '../groupinfo';
 import { GroupInfoService } from '../groupinfo.service';
 
@@ -15,8 +17,12 @@ export class EditGroupinfoComponent implements OnInit{
     languageId: 0,
     GroupInfoCode: ''
   }
+  dropDownTeachers: DropDown[] = [];
+  dropDownLanguages: DropDown[] = [];
+
   constructor(
     private groupInfoService: GroupInfoService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -27,11 +33,26 @@ export class EditGroupinfoComponent implements OnInit{
       var id = Number(param.get('id'));
       this.getById(id);
     });
+    this.getDropDownTeachers();
+    this.getDropDownLanguages();
   }
+
   getById(id: number) {
     console.log(id);
     this.groupInfoService.getById(id).subscribe((data) => {
       this.groupInfos = data;
+    });
+  }
+
+  private getDropDownTeachers(){
+    this.userService.getTeachersList().subscribe(data => {
+      this.dropDownTeachers = data;
+    });
+  }
+
+  private getDropDownLanguages(){
+    this.userService.getLanguagesList().subscribe(data => {
+      this.dropDownLanguages = data;
     });
   }
 

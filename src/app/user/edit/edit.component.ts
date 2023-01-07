@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DropDown} from 'src/app/model/dropdown';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -14,10 +15,11 @@ export class EditComponent implements OnInit {
     name: '',
     lastname: '',
     patronymic: '',
-    roleId: 0,
+    roleID: 0,
     isHeadman: false,
     userCode: '',
   };
+  dropDownRoles: DropDown[] = [];
 
   constructor(
     private userService: UserService,
@@ -29,12 +31,19 @@ export class EditComponent implements OnInit {
       var id = Number(param.get('id'));
       this.getById(id);
     });
+    this.getDropDownRoles();
   }
 
   getById(id: number) {
     console.log(id);
     this.userService.getById(id).subscribe((data) => {
       this.users = data;
+    });
+  }
+
+  private getDropDownRoles(){
+    this.userService.getRolesList().subscribe(data => {
+      this.dropDownRoles = data;
     });
   }
 

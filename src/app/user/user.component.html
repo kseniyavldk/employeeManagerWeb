@@ -12,16 +12,17 @@
           <th>Фамилия</th>
           <th>Отчество</th>
           <th>Роль</th>
-          <th>Доступ</th>
+          <th>Староста?</th>
         </thead>
         <tbody>
-          <tr *ngFor = "let user of users" class="text-center">
+          <tr *ngFor = "let user of vusers" class="text-center">
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.patronymic }}</td>
-            <td>{{ user.roleId }}</td>
-            <td>{{ user.isHeadman }}</td>
+            <td>{{ user.rolename }}</td>
+            <!-- <td>{{ user.isHeadman }}</td> -->
+            <td><input type="checkbox" checked = {{user.headman}} readonly disabled/></td>
             <td>
               <button class="btn btn-warning" [routerLink]="['/user/edit', user.id]">Изменить</button>
               <button class="btn btn-danger" (click)="openDeleteModal(user.id)">Удалить</button>

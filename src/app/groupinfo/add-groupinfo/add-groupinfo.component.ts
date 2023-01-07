@@ -18,16 +18,24 @@ export class AddGroupinfoComponent implements OnInit{
     GroupInfoCode: ''
   }
   dropDownTeachers: DropDown[] = [];
+  dropDownLanguages: DropDown[] = [];
 
   constructor(private groupInfoService: GroupInfoService, private userService: UserService, private router: Router) {}
   
   ngOnInit(): void {
     this.getDropDownTeachers();
+    this.getDropDownLanguages();
   }
 
   private getDropDownTeachers(){
     this.userService.getTeachersList().subscribe(data => {
       this.dropDownTeachers = data;
+    });
+  }
+
+  private getDropDownLanguages(){
+    this.userService.getLanguagesList().subscribe(data => {
+      this.dropDownLanguages = data;
     });
   }
 

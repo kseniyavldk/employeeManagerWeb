@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DropDown } from 'src/app/model/dropdown';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -14,15 +15,23 @@ export class AddComponent implements OnInit {
     name: '',
     lastname: '',
     patronymic: '',
-    roleId: 0,
+    roleID: 0,
     isHeadman: false,
     userCode: '',
   };
+  dropDownRoles: DropDown[] = [];
 
   constructor(private userService: UserService, private router: Router) {}
   ngOnInit(): void {
-    
+    this.getDropDownRoles();
   }
+
+  private getDropDownRoles(){
+    this.userService.getRolesList().subscribe(data => {
+      this.dropDownRoles = data;
+    });
+  }
+
   postUsersAdd() {
     this.userService.postUsersAdd(this.users).subscribe({
       next: (data) => {

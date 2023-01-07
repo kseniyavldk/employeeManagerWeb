@@ -37,8 +37,23 @@
       required
       />
     </div>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Роль</label>
+      <select class="form-select" aria-label="Disabled select example"  [(ngModel)] = "users.roleID" [ngModelOptions]="{standalone: true}">
+        <option id="roleID" *ngFor="let option of dropDownRoles" [value] = "option.id">{{option.value}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="txtPrice" class="form-label">Староста?&nbsp;</label>
+      <input
+        type="checkbox"
+        name="isHeadman"
+        [(ngModel)] = "users.isHeadman"
+        id="isHeadman"
+      />
+    </div>
     <button type="button" (click)="postUsersAdd()" class="btn btn-primary">
-      Create
+      Добавить
     </button>
   </form>
 </div>
