@@ -10,6 +10,7 @@ export interface VTimeTable{
     id: number;
     data: Date;
     groupname: string;
+    cabinet: number;
     fullname: string;
     timeTableCode: string;
 }

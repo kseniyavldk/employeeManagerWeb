@@ -10,6 +10,7 @@
             <th>ID</th>
             <th>Дата</th>
             <th>Группа</th>
+            <th>Кабинет</th>
             <th>Преподаватель</th>
           </thead>
           <tbody>
@@ -17,6 +18,7 @@
               <td>{{ timeTable.id }}</td>
               <td>{{ timeTable.data | date: 'medium'}}</td>
               <td>{{ timeTable.groupname }}</td>
+              <td>{{ timeTable.cabinet }}</td>
               <td>{{ timeTable.fullname }}</td>
               <td>
                 <button class="btn btn-warning" [routerLink]="['/timetable/edit', timeTable.id]">Изменить</button>
