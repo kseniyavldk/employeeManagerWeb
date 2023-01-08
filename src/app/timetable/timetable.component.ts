@@ -1,5 +1,5 @@
 import { Component, OnInit, LOCALE_ID } from '@angular/core';
-import { TimeTable } from './timetable';
+import { TimeTable, VTimeTable } from './timetable';
 import { TimetableService } from './timetable.service';
 declare var window: any;
 @Component({
@@ -10,6 +10,7 @@ declare var window: any;
 })
 export class TimetableComponent implements OnInit {
   timeTables: TimeTable[] = [];
+  vtimeTables: VTimeTable[] = [];
   deleteModal: any;
   idTodelete: number = 0;
 
@@ -20,12 +21,20 @@ export class TimetableComponent implements OnInit {
       document.getElementById('deleteModal')
     );
     this.getTimeTables();
+    this.getVTimeTables();
   }
   private getTimeTables(){
     this.timeTableService.getTimeTablesList().subscribe(data => {
       this.timeTables = data;
     });
   }
+
+  private getVTimeTables(){
+    this.timeTableService.getVTimeTablesList().subscribe(data => {
+      this.vtimeTables = data;
+    });
+  }
+
   openDeleteModal(id: number) {
     this.idTodelete = id;
     this.deleteModal.show();
@@ -34,7 +43,7 @@ export class TimetableComponent implements OnInit {
   delete() {
     this.timeTableService.delete(this.idTodelete).subscribe({
       next: (data) => {
-        this.timeTables = this.timeTables.filter(_ => _.id != this.idTodelete)
+        this.vtimeTables = this.vtimeTables.filter(_ => _.id != this.idTodelete)
         this.deleteModal.hide();
       },
     });

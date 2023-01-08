@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TimeTable } from './timetable';
+import { DropDown } from '../model/dropdown';
+import { TimeTable, VTimeTable } from './timetable';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,15 @@ export class TimetableService {
           data: new Date(res.data)
         }),
       )); */
+  }
+  public getGroupsList(): Observable<DropDown[]> {
+    return this.http.get<DropDown[]>(`${this.apiServerUrl}/vgroupInfo/allKeyValue`);
+  }
+  public getCabinetsList(): Observable<DropDown[]> {
+    return this.http.get<DropDown[]>(`${this.apiServerUrl}/cabinet/allKeyValue`);
+  }
+   public getVTimeTablesList(): Observable<VTimeTable[]> {
+    return this.http.get<VTimeTable[]>(`${this.apiServerUrl}/vtimetable/all`);
   }
   public postTimeTablesAdd(timeTable: TimeTable): Observable<TimeTable> {
     return this.http.post<TimeTable>(`${this.apiServerUrl}/timeTable/add`, timeTable);
