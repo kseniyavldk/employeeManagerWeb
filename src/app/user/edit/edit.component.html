@@ -43,6 +43,20 @@
         </select>
       </div>
       <div class="mb-3">
+        <label for="txtName" class="form-label">Группа</label>
+        <select
+          id="groupId"
+          class="form-select"
+          aria-label="Disabled select example"
+          [(ngModel)]="users.groupId"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <option *ngFor="let option of dropDownGroups" [value]="option.id">
+            {{ option.value }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
       <label for="txtPrice" class="form-label">Староста?&nbsp;</label>
       <input
         type="checkbox"

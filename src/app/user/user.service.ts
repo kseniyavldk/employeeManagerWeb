@@ -12,7 +12,9 @@ export class UserService {
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {}
-
+  public getGroupsList(): Observable<DropDown[]> {
+    return this.http.get<DropDown[]>(`${this.apiServerUrl}/vgroupInfo/allKeyValue`);
+  }
   public getUsersList(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiServerUrl}/user/all`);
   }

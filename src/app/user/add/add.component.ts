@@ -16,19 +16,28 @@ export class AddComponent implements OnInit {
     lastname: '',
     patronymic: '',
     roleID: 0,
+    groupId: 0,
     isHeadman: false,
     userCode: '',
   };
   dropDownRoles: DropDown[] = [];
+  dropDownGroups: DropDown[] = [];
 
   constructor(private userService: UserService, private router: Router) {}
   ngOnInit(): void {
     this.getDropDownRoles();
+    this.getDropDownGroups();
   }
 
   private getDropDownRoles(){
     this.userService.getRolesList().subscribe(data => {
       this.dropDownRoles = data;
+    });
+  }
+
+  private getDropDownGroups(){
+    this.userService.getGroupsList().subscribe(data => {
+      this.dropDownGroups = data;
     });
   }
 

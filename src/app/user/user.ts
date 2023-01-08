@@ -4,6 +4,7 @@ export interface User{
     lastname: string;
     patronymic: string;
     roleID: number;
+    groupId: number;
     isHeadman: boolean;
     userCode: string;
 }
@@ -14,6 +15,7 @@ export interface VUser{
     lastname: string;
     patronymic: string;
     rolename: string;
+    groupname: string;
     headman: boolean;
     userCode: string;
 }

@@ -16,10 +16,12 @@ export class EditComponent implements OnInit {
     lastname: '',
     patronymic: '',
     roleID: 0,
+    groupId: 0,
     isHeadman: false,
     userCode: '',
   };
   dropDownRoles: DropDown[] = [];
+  dropDownGroups: DropDown[] = [];
 
   constructor(
     private userService: UserService,
@@ -32,6 +34,7 @@ export class EditComponent implements OnInit {
       this.getById(id);
     });
     this.getDropDownRoles();
+    this.getDropDownGroups();
   }
 
   getById(id: number) {
@@ -46,6 +49,13 @@ export class EditComponent implements OnInit {
       this.dropDownRoles = data;
     });
   }
+
+  private getDropDownGroups(){
+    this.userService.getGroupsList().subscribe(data => {
+      this.dropDownGroups = data;
+    });
+  }
+
 
   update(): void {
     console.log(this.users);

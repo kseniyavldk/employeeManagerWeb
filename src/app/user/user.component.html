@@ -12,6 +12,7 @@
           <th>Фамилия</th>
           <th>Отчество</th>
           <th>Роль</th>
+          <th>Группа</th>
           <th>Староста?</th>
         </thead>
         <tbody>
@@ -21,7 +22,7 @@
             <td>{{ user.lastname }}</td>
             <td>{{ user.patronymic }}</td>
             <td>{{ user.rolename }}</td>
-            <!-- <td>{{ user.isHeadman }}</td> -->
+            <td>{{ user.groupname }}</td>
             <td><input type="checkbox" checked = {{user.headman}} readonly disabled/></td>
             <td>
               <button class="btn btn-warning" [routerLink]="['/user/edit', user.id]">Изменить</button>
