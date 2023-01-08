@@ -2,9 +2,10 @@
   <div class="card">
     <div class="card-header">
       <h3>Информация о пользователях</h3>
-      <a class="btn btn-primary" routerLink="/user/add">Добавить</a>
+      <a class="btn btn-primary" style="margin-right:20px" routerLink="/user/add">Добавить</a>
+      <button class="btn btn-primary" (click)="downloadAsPDF();">Экспорт в PDF</button>
     </div>
-    <div class="card--body">
+    <div class="card--body" id="pdfTable" #pdfTable>
       <table class="table table-hover">
         <thead align="center">
           <th>ID</th>
@@ -14,6 +15,7 @@
           <th>Роль</th>
           <th>Группа</th>
           <th>Староста?</th>
+          <th></th>
         </thead>
         <tbody>
           <tr *ngFor = "let user of vusers" class="text-center">

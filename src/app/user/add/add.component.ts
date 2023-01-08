@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DropDown } from 'src/app/model/dropdown';
 import { User } from '../user';
@@ -28,7 +29,7 @@ export class AddComponent implements OnInit {
     this.getDropDownRoles();
     this.getDropDownGroups();
   }
-
+  
   private getDropDownRoles(){
     this.userService.getRolesList().subscribe(data => {
       this.dropDownRoles = data;

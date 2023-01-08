@@ -1,5 +1,5 @@
 <div class="container">
-  <legend>Добавление информации о преподавателях</legend>
+  <legend>Добавление информации о пользователях</legend>
   <form>
     <div class="mb-3">
       <label for="txtName" class="form-label">Имя</label>
@@ -11,6 +11,8 @@
         id="name"
         placeholder="Имя"
         required
+        minlength="2" 
+        appForbiddenName="qwerty"
       />
     </div>
     <div class="mb-3">
