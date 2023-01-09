@@ -16,8 +16,8 @@ export class AddComponent implements OnInit {
     name: '',
     lastname: '',
     patronymic: '',
-    roleID: 0,
-    groupId: 0,
+    roleID: 1,
+    groupId: 1,
     isHeadman: false,
     userCode: '',
   };
