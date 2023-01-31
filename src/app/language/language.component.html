@@ -1,0 +1,46 @@
+<div class="container" id="user-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Информация о языках</h3>
+        <a class="btn btn-primary" routerLink="/language/add">Добавить</a>
+      </div>
+      <div class="card--body">
+        <table class="table table-hover">
+          <thead align="center">
+            <th>ID</th>
+            <th>Язык</th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let language of languages" class="text-center">
+              <td>{{ language.id }}</td>
+              <td>{{ language.name }}</td>
+              <td>
+                <button class="btn btn-warning" [routerLink]="['/language/edit', language.id]">Изменить</button>
+                <button class="btn btn-danger"  (click)="openDeleteModal(language.id)">Удалить</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+      <!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Внимание!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Вы действительно хотите удалить?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-danger" (click)="delete()">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>
+  

@@ -1,0 +1,43 @@
+<div class="container">
+  <legend>Добавление информации о группах</legend>
+  <form>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Преподаватель</label>
+      <select
+        id="userId"
+        class="form-select"
+        aria-label="Disabled select example"
+        [(ngModel)]="groupInfos.userId"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option
+          *ngFor="let option of dropDownTeachers"
+          [value]="option.id"
+        >
+          {{ option.value }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Язык</label>
+      <select
+        id="languageId"
+        class="form-select"
+        aria-label="Disabled select example"
+        [(ngModel)]="groupInfos.languageId"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option
+          *ngFor="let option of dropDownLanguages"
+          [value]="option.id"
+        >
+          {{ option.value }}
+        </option>
+      </select>
+    </div>
+
+    <button type="button" (click)="postGroupInfosAdd()" class="btn btn-primary">
+      Добавить
+    </button>
+  </form>
+</div>

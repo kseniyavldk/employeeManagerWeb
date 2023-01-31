@@ -1,0 +1,48 @@
+<div class="container">
+  <legend>Добавление расписания</legend>
+  <form>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Дата</label>
+      <input
+        type="datetime-local"
+        name="data"
+        [(ngModel)]="timeTables.data"
+        class="form-control"
+        id="data"
+        placeholder="Date"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Группа</label>
+      <select
+        id="groupId"
+        class="form-select"
+        aria-label="Disabled select example"
+        [(ngModel)]="timeTables.groupId"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option *ngFor="let option of dropDownGroups" [value]="option.id">
+          {{ option.value }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Кабинет</label>
+      <select
+        id="cabinetId"
+        class="form-select"
+        aria-label="Disabled select example"
+        [(ngModel)]="timeTables.cabinetId"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option *ngFor="let option of dropDownCabinets" [value]="option.id">
+          {{ option.value }}
+        </option>
+      </select>
+    </div>
+    <button type="button" (click)="postTimeTablesAdd()" class="btn btn-primary">
+      Добавить
+    </button>
+  </form>
+</div>

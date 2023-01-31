@@ -1,0 +1,22 @@
+<div class="container">
+    <legend>Изменение информации</legend>
+    <form>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Номер</label>
+        <input
+          type="text"
+          name="number"
+          [(ngModel)] = "cabinets.number"
+          class="form-control"
+          id="number"
+          placeholder="Number"
+          required
+        />
+      </div>
+      
+      <button type="button" (click)="postCabinetsAdd()" class="btn btn-primary">
+        Добавить
+      </button>
+    </form>
+  </div>
+  

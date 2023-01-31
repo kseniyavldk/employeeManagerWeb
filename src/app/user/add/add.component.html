@@ -1,0 +1,75 @@
+<div class="container">
+  <legend>Добавление информации о пользователях</legend>
+  <form>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Имя</label>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)] = "users.name"
+        class="form-control"
+        id="name"
+        placeholder="Имя"
+        required
+        minlength="2" 
+        appForbiddenName="qwerty"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="txtPrice" class="form-label">Фамилия</label>
+      <input
+        type="text"
+        name="lastname"
+        [(ngModel)] = "users.lastname"
+        class="form-control"
+        id="lastname"
+        placeholder="Фамилия"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="txtQuantity" class="form-label">Отчество</label>
+      <input
+      type="text"
+      name="patronymic"
+      [(ngModel)] = "users.patronymic"
+      class="form-control"
+      id="patronymic"
+      placeholder="Отчество"
+      required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Роль</label>
+      <select class="form-select" aria-label="Disabled select example"  [(ngModel)] = "users.roleID" [ngModelOptions]="{standalone: true}">
+        <option id="roleID" *ngFor="let option of dropDownRoles" [value] = "option.id">{{option.value}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="txtName" class="form-label">Группа</label>
+      <select
+        id="groupId"
+        class="form-select"
+        aria-label="Disabled select example"
+        [(ngModel)]="users.groupId"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option *ngFor="let option of dropDownGroups" [value]="option.id">
+          {{ option.value }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="txtPrice" class="form-label">Староста?&nbsp;</label>
+      <input
+        type="checkbox"
+        name="isHeadman"
+        [(ngModel)] = "users.isHeadman"
+        id="isHeadman"
+      />
+    </div>
+    <button type="button" (click)="postUsersAdd()" class="btn btn-primary">
+      Добавить
+    </button>
+  </form>
+</div>

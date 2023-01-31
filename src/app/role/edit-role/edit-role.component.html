@@ -1,0 +1,22 @@
+<div class="container">
+    <legend>Измеение информации о роли</legend>
+    <form>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Название</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)] = "roles.name"
+          class="form-control"
+          id="name"
+          placeholder="Название"
+          required
+        />
+      </div>
+      
+      <button type="button" (click)="update()" class="btn btn-primary">
+        Изменить
+      </button>
+    </form>
+  </div>
+  
